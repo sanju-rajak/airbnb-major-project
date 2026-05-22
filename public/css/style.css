@@ -111,47 +111,72 @@ body{
 
 /* FULL MOBILE NAVBAR FIX */
 
+/* MOBILE RESPONSIVE */
+
 @media (max-width: 992px){
 
-  .navbar-collapse{
-    display: block !important;
-    width: 100%;
-    background: white;
-    padding: 1rem 0;
+  .navbar{
+    height: auto;
+    padding: 0.7rem 1rem;
   }
 
-  .navbar-collapse.collapse:not(.show){
-    display: none !important;
+  .navbar-collapse{
+    background-color: white;
+    padding-top: 1rem;
   }
 
   .navbar-nav{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
-
-  .navbar-nav.ms-auto{
-    margin-left: 0 !important;
+    gap: 0.5rem;
   }
 
   .nav-link{
-    padding: 0.7rem 0 !important;
+    padding: 0.5rem 0;
   }
 
-  .d-flex{
-    flex-direction: column;
+  .search-form{
     width: 100%;
-    gap: 0.7rem;
-    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .search-inp{
-    width: 100% !important;
+    width: 100%;
+    margin-right: 0 !important;
   }
 
   .search-btn{
     width: 100%;
+  }
+
+  #filters{
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
+  }
+
+  #filters::-webkit-scrollbar{
+    display: none;
+  }
+
+  .filter{
+    min-width: 90px;
+    flex-shrink: 0;
+  }
+
+  .texs-toggle{
+    min-width: 260px;
+    margin-right: 1rem;
+  }
+
+  .listing-card{
+    width: 100% !important;
+  }
+
+  .card-img-top{
+    width: 100% !important;
+    height: 18rem !important;
+    object-fit: cover;
   }
 
 }
