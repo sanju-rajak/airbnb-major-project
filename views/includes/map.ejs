@@ -1,0 +1,38 @@
+<div id="map"></div>
+
+<style>
+#map {
+  height: 400px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  const lat = <%- JSON.stringify(latitude) %>;
+  const lng = <%- JSON.stringify(longitude) %>;
+
+  if (!lat || !lng) {
+    document.getElementById("map").innerHTML =
+      "<h5>Map not available</h5>";
+  } else {
+    const map = L.map("map").setView([lat, lng], 10);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap"
+    }).addTo(map);
+
+    L.marker([lat, lng])
+      .addTo(map)
+      .bindPopup("<%= listing.location %>")
+      .openPopup();
+
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 200);
+  }
+</script>
